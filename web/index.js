@@ -12,8 +12,9 @@ import { webhookHandlers } from "./webhooks/index.js";
 import { connectDb, shopify } from "./core/index.js";
 
 // Routes
-import { settingsRouter, statusRouter } from "./router/index.js";
+import { statusRouter } from "./router/index.js";
 
+// Method to connect to database
 connectDb();
 
 const PORT = parseInt(
@@ -47,7 +48,6 @@ app.use("/api/*", shopify.validateAuthenticatedSession());
 app.use(express.json());
 
 // Routes for api
-app.use("/api/settings", settingsRouter);
 app.use("/api/status", statusRouter);
 
 app.use(shopify.cspHeaders());

@@ -1,5 +1,11 @@
 import { shopify } from "../core/index.js";
 
+const PRODUCTS_COUNT = `{
+  productsCount {
+    count
+  }
+}`;
+
 export const statusController = {
   /**
    * @param {import("express").Request} req
@@ -14,9 +20,13 @@ export const statusController = {
         },
       } = res;
 
-      const { count: products } = await shopify.api.rest.Product.count({
-        session,
-      });
+      const client = new shopify.api.clients.Graphql({ session });
+
+      const {
+        data: {
+          productsCount: { count: products },
+        },
+      } = await client.request(PRODUCTS_COUNT);
 
       res.status(200).json({ products });
     } catch (error) {

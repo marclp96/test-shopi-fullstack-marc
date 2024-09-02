@@ -4,24 +4,30 @@ La siguiente prueba tiene como finalidad poner a prueba las habilidades y destre
 
 ## Antes de comenzar
 
+- Instala la versión 21.6.1 de [NodeJs](https://nodejs.org/en) en tu ordeneador, asegurate de estar utilizando esta versión al momento de instalar los paquetes y de hacer el desarrollo.
 - Instala en tu equipo la CLI de Shopify, encontrarás la información necesaria en el siguiente [enlace](https://shopify.dev/docs/api/shopify-cli).
 - Crea una instancia de MongoDB (gratuita). Te recomendamos utilizar MongoDB Atlas, pero puedes utilizar el proveedor que prefieras. [MondoDB Atlas](https://www.mongodb.com/es/lp/cloud/atlas/try4).
+- Asegurate de tener instalado algún gestor de paquetes como npm o yarn, puedes utilizar el que prefieras, nosotros para los ejemplos utilizaremos yarn.
 
 ## Actividades a realizar
 
 - Creacion de cuenta de partner y tienda de desarrollo.
 - Fork del repositorio y conectar aplicación.
+- Estado de sincronización.
+- Página de conexión ERP.
+- Extensión de tema - Bloque de productos destacados.
+- Ejercicios extras (opcional).
 
 ## Creación de cuenta de partner y tienda de desarrollo
 
-Debes registrarte como partner en Shopify y posterior a ello crear una tienda de desarrollo, dicha tienda debe tener datos de prueba (productos, clientes, ordenes, colecciones, etc) para poder llevar a cabo el resto del desarrollo.
+Debes registrarte como partner en Shopify y posterior a ello crear una tienda de desarrollo, dicha tienda debe tener datos de prueba (productos, clientes, ordenes, colecciones, etc) para poder llevar a cabo el resto del ejercicio.
 
 - Registro como [partner de Shopify](https://www.shopify.com/es-es/partners).
 - Crear tienda de desarrollo con dummy data.
 
 ![alt text](<CleanShot 2024-08-29 at 14.00.53@2x.png>)
 
-Se mostrará una página con opciones para la creación de la tienda, deberás leer detenidamente cada una de las opciones y aplicar tu criterio para seleccionar la que mejor corresponda al caso, recuerda que necesitas crear una tienda de desarrollo para probar funcionalidades y que la misma tenga datos de prueba.
+Se mostrará una página con opciones para la creación de la tienda, deberás leer detenidamente cada una de las opciones y aplicar tu criterio para seleccionar las que mejor correspondan al caso, recuerda que necesitas crear una tienda de desarrollo para probar funcionalidades y que la misma debe tener datos de prueba.
 
 ## Fork del repositorio y conectar aplicación
 
@@ -30,7 +36,7 @@ Abajo encontrarás un repositorio con un proyecto que hemos preparado para la pr
 - Fork del [repositorio](https://github.com/Witocorp-Organization/test-dev-app.git).
 - Obtén la URI de conexión a tu base de datos de la instancia de MongoDB que previamente creaste. Reemplaza el valor de la variable de entorno con el nombre `MONGO_URI` que encontrarás en el fichero `.env` dentro del directorio web.
 
-En la raíz del proyecto, ejecuta `yarn install` para instalar las dependencias necesarias, posterios a ello ejecuta `yarn dev`. Un mensaje como el siguiente te aparecerá, con un enlace para que inicies sesión en tu cuenta de partner desde el navegador.
+En la raíz del proyecto, ejecuta `yarn install` para instalar las dependencias necesarias, posterios a ello ejecuta `yarn dev`. Un mensaje como el el de la imágen de abajo te aparecerá con un enlace para que inicies sesión en tu cuenta de partner desde el navegador.
 
 ![alt text](<CleanShot 2024-08-30 at 12.11.51.png>)
 
@@ -44,7 +50,7 @@ Si has realizado los pasos correctamente verás por consola que la aplicación s
 
 La home page de la aplicación se encuentra en el fichero `/web/frontend/pages/index.jsx`, en el verás que hay un método que hace una llamada al backend para obtener un conteo del total de productos y luego renderiza un componente que muestra este valor, hay otra línea para customers pero no está mostrando ningún valor obtenido del backend. Tu tarea en este ejercicio es hacer un poco de ingenieria inversa y encontrar el controlador que devuelve los datos para la petición que se hace desde el front.
 
-Una vez que hayas encontrado el controlador, debes agregar una lógica adicional para que devuelva la cantidad todal de clientes y de ordenes que hay en tu tienda, para ello deberás utilizar el api de GraphQL de Shopify, devuelve estos valores en la respuesta y en el front muestralos manteniendo la misma estructura de los componentes.
+Una vez que hayas encontrado el controlador, debes agregar una lógica adicional para que devuelva la cantidad todal de clientes y de ordenes que hay en tu tienda, para ello deberás utilizar el [api de GraphQL de Shopify](https://shopify.dev/docs/api/admin-graphql), devuelve estos valores en la respuesta y en el front muestralos manteniendo la misma estructura de los componentes.
 
 - Encontrar el controlador que devuelve los datos de la llamada.
 - Consultar el [total de clientes](https://shopify.dev/docs/api/admin-graphql/2024-07/queries/customersCount) y el [total de ordenes](https://shopify.dev/docs/api/admin-graphql/2024-07/queries/ordersCount) con el api de GraphQL.
@@ -117,7 +123,12 @@ Para el backend, deberás crear dos rutas, dos controladores y un modelo, las ru
 
 Dentro del directorio `/extensions/featured-products` encontrarás una serie de carpetas y ficheros, estos pertenecen a una extension de tema que tiene tu aplicación, con ella deberás crear una sección en tu tienda que muestre un carrusel de productos obtenidos desde una API externa, la estructura y estilos de esta sección debe apegarse al diseño que encontrarás en este [Figma](https://www.figma.com/design/4NEx3jyvv3gAu8vCBbyWgv/Prueba?node-id=0-1&node-type=CANVAS&t=rOkLfP434HlFapkN-0). Para este ejercicio utilizarás el lenguage propio de Shopify, Liquid, y JavaScript Vanilla, no está permitido el uso de JQuery.
 
-Detén tu servidor y vuelvelo a ejecutar con `yarn dev`, está atento a la consola porque verás que aparecen algunos enlaces con información, debes encontrar aquel que diga `Setup your theme app extension in the host theme` y hacer clic en el enlace que aparece debajo de el:
+A continuación te dejamos algunos enlaces de documentación oficial de Shopify, te recomendamos que si no estás familiarizado con esta tecnología te tomes un momento para hacer una lectura de esto y luego continues.
+
+- [Extensiones de temas en aplicaciones de Shopify](https://shopify.dev/docs/apps/build/online-store/theme-app-extensions).
+- [Lenguage de plantillas Liquid](https://shopify.dev/docs/api/liquid).
+
+Detén tu servidor y vuelvelo a ejecutar con `yarn dev`, estáte atento a la consola porque verás que aparecen algunos enlaces con información, debes encontrar aquel que diga `Setup your theme app extension in the host theme` y hacer clic en el enlace que aparece debajo de el:
 
 ![alt text](<CleanShot 2024-08-30 at 14.05.59.png>)
 
@@ -129,13 +140,13 @@ Como podrás haber notado, el fichero `/extensions/featured-products/blocks/feat
 
 ![alt text](<CleanShot 2024-08-30 at 14.18.22.png>)
 
-Se te pedirá la contraseña de tu tienda la puedes encontrar de la siguiente manera:
+Se te pedirá la contraseña de tu tienda, la puedes encontrar de la siguiente manera:
 
 ![alt text](<CleanShot 2024-08-30 at 14.20.24.gif>)
 
 Desde esa URL, cualquier cambio que hagas en tu extensión del tema se verá reflejado de forma automática en tu tienda, puedes hacer la prueba y agregar un parrafo con un hola mundo debajo de la etiqueta h1, guarda y sin necesidad de recargar la página verás el parrafo con el texto.
 
-Aquí comienza tu ejercicio, deberás crear la estructura de tu sección dentro del fichero `featured_products.liquid` y utilizar los dos ficheros que encontrarás dentro de la carpeta `/extensions/featured-products/assets` para el CSS y JS que vas a necesitar. Tendrás que consultar un API externa para obtener un listad de productos que luego vas a renderizar dentro de un carrusel, del lado izquierdo deberás mostrar una imagen y una serie de textos que obtendrás a través de las settings vía liquid
+Deberás crear la estructura de tu sección dentro del fichero `featured_products.liquid` y utilizar los dos ficheros que encontrarás dentro de la carpeta `/extensions/featured-products/assets` para el CSS y JS que vas a necesitar. Tendrás que consultar un API externa para obtener un listado de productos que luego vas a renderizar dentro de un carrusel, del lado izquierdo deberás mostrar una imagen y una serie de textos que obtendrás a través de las settings vía liquid.
 
 - Abre el personalizador de temas de tu extension.
 - Añade tu extension al tema de desarrollo que estas utilizando.
@@ -143,5 +154,39 @@ Aquí comienza tu ejercicio, deberás crear la estructura de tu sección dentro 
 - Crea la estructura para la sección que necesitas dentro del fichero `featured_products.liquid`.
 - Incluye el archivo `featured_products.js` de la carpeta assets dentro de `featured_products.liquid`. [Ver documentación](https://shopify.dev/docs/api/liquid/filters/script_tag).
 - Incluye el archivo `featured_products.css` de la carpeta assets dentro de `featured_products.liquid`. [Ver documentación](https://shopify.dev/docs/api/liquid/filters/stylesheet_tag).
+- Añade tres settings al esquema:
+  - Imagen: Contendrá una imagen destacada que se mostrará del lado izquierdo, puedes utilizar la misma imagen del figma.
+  - Texto: Contendrá el título de la caja izquierda.
+  - Texto: Contendrá el mensaje que se muestra debajo del título de la caja izquierda.
+  - En este enlace puedes conseguir mas información sobre como agregar [settings a tu esquema](https://shopify.dev/docs/storefronts/themes/architecture/settings).
 - Crea la sección igual al diseño del [Figma](https://www.figma.com/design/4NEx3jyvv3gAu8vCBbyWgv/Prueba?node-id=0-1&node-type=CANVAS&t=rOkLfP434HlFapkN-0).
-  - el bloque de la derecha debe ser un
+- El bloque de la derecha:
+  - Obtén los productos desde la siguiente [API de REST](https://fakeapi.platzi.com/en/rest/products/).
+  - Debe ser un carrusel de imágenes, utiliza los productos obtenidos a través del API externa para mostrar en cada slide la primera imagen de cada producto.
+    - Para el carrusel recomendamos el uso de la librería [Swiper](https://swiperjs.com/get-started), utiliza su CDN y lee su documentación para entender todas las posibilidades que tienes. Puedes utilizar la librería de tu preferencia siempre y cuando cumpla con los requisitos del ejercicio y no utilice JQuery.
+  - En la parte superior de la imágen se debe mostrar el título del producto que está activo en el carrusel junto precio, con cada cambio de slide se debe cambiar estos valores de forma dínamica a los del producto que corresponda.
+- El bloque de la izquierda:
+  - Debe contener la imagen que se agrega a través de las settings del bloque.
+  - Debe tener en la parte inferior un título y un mensaje que también se definen a través de las settings del bloque.
+- Cuidar la versión para dispositivos pequeños, en el figma encontrarás un diseño para desktop y otro para mobile.
+
+## Ejercicios extras (opcional)
+
+Los siguientes ejercicios no son obligatorios que los hagas, pero si ya has terminado toda la prueba y te sientes en la capacidad de realizarlos sin problemas nos darás a nosotros buenos indicios del nivel que posees.
+
+### Página para consultar productos
+
+Crea una nueva página dentro de `/web/frontend/pages` para consultar productos, la página debe tener un formulario en donde se puede introducir el id de un producto, luego con un botón que haga una petición al back y obtenga la información de ese producto vía api de GraphQl, dejamos bajo tu criterio la información y el formato en el que se va a presentrar dicha información en el front cuando se obtenga la respuesta, te recomendamos mostrar solamente la información mas relevante y no complicar mucho el ejercicio.
+
+- Formulario para introducir el id de un producto.
+- Creación de ruta y controlador para la petición.
+- Lógica en el controlador para consultar el id del producto con el [api de GraphQl](https://shopify.dev/docs/api/admin-graphql/2024-07/queries/product).
+- Devuelve los datos al front y presentaselos de forma amigable al usuario utilizando [componentes de polaris](https://polaris.shopify.com/components).
+
+### Cambio de imágen destacada de forma dínamica
+
+En la extension de tu tema deberás cambiar de forma dínamica la imágen destacada que se introduce a través de las settings del bloque y mostrar la segunda imágen que obtengas de cada producto, pero solo a partir del segundo producto.
+
+- Inicialmente, cuando se muestra el primer producto obtenido vía API, se debe mostrar la imágen definida en las settings del bloque.
+- Cuando se cambia el producto activo en el carrusel, a partir del segundo producto, se debe tomar la segunda imágen del mismo y reemplazar la imágen destacada por la del producto. Con cada cambio de producto se debe cambiar la imágen a la que corresponda.
+- Cuando se vuelva al primer slide se debe de mostrar de nuevo la imágen destacada que se definió en las settings del bloque.

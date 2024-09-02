@@ -3,7 +3,7 @@
 client_id = "bee4c65350285700aa7cc6825a78acc2"
 name = "Test App"
 handle = "test-app-7134"
-application_url = "https://holding-gaming-wishes-matches.trycloudflare.com"
+application_url = "https://northern-policy-academy-israeli.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "write_products,write_shipping"
 
 [auth]
 redirect_urls = [
-  "https://holding-gaming-wishes-matches.trycloudflare.com/auth/callback",
-  "https://holding-gaming-wishes-matches.trycloudflare.com/auth/shopify/callback",
-  "https://holding-gaming-wishes-matches.trycloudflare.com/api/auth/callback"
+  "https://northern-policy-academy-israeli.trycloudflare.com/auth/callback",
+  "https://northern-policy-academy-israeli.trycloudflare.com/auth/shopify/callback",
+  "https://northern-policy-academy-israeli.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
@@ -29,7 +29,7 @@ api_version = "2023-10"
   uri = "/webhooks"
 
 [app_proxy]
-url = "https://holding-gaming-wishes-matches.trycloudflare.com/prapi"
+url = "https://northern-policy-academy-israeli.trycloudflare.com/prapi"
 subpath = "api-bbva"
 prefix = "apps"
 
