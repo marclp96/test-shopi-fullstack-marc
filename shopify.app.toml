@@ -1,0 +1,37 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "bee4c65350285700aa7cc6825a78acc2"
+name = "Test App"
+handle = "test-app-7134"
+application_url = "https://holding-gaming-wishes-matches.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "fantasticfy-training-apps.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,write_shipping"
+
+[auth]
+redirect_urls = [
+  "https://holding-gaming-wishes-matches.trycloudflare.com/auth/callback",
+  "https://holding-gaming-wishes-matches.trycloudflare.com/auth/shopify/callback",
+  "https://holding-gaming-wishes-matches.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[app_proxy]
+url = "https://holding-gaming-wishes-matches.trycloudflare.com/prapi"
+subpath = "api-bbva"
+prefix = "apps"
+
+[pos]
+embedded = false

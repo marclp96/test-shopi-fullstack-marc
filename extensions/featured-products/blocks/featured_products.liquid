@@ -1,0 +1,25 @@
+{% comment %} Your code starts here {% endcomment %}
+<section id="featured-product-{{ block.id }}">
+  {% comment %} block.settings object contains the settings you define in the schema object, you can access the settings values using the id as key, show example below {% endcomment %}
+  <h1>{{ block.settings.title }}</h1>
+  <p>test</p>
+</section>
+{% comment %} And ends here {% endcomment %}
+
+{% comment %} Don't delete this {% endcomment %}
+{% schema %}
+{
+  // In the customize, you will find your extension with this name
+  "name": "Featured products",
+  "target": "section",
+  // You must define your settings into this array
+  "settings": [
+    {
+      "type": "text",
+      "label": "Title",
+      "id": "title", // Use this to access the value in the block.settings object
+      "default": "Featured products title"
+    }
+  ]
+}
+{% endschema %}
