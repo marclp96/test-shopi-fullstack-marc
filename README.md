@@ -164,7 +164,7 @@ Deberás crear la estructura de tu sección dentro del fichero `featured_product
   - Obtén los productos desde la siguiente [API de REST](https://fakeapi.platzi.com/en/rest/products/).
   - Debe ser un carrusel de imágenes, utiliza los productos obtenidos a través del API externa para mostrar en cada slide la primera imagen de cada producto.
     - Para el carrusel recomendamos el uso de la librería [Swiper](https://swiperjs.com/get-started), utiliza su CDN y lee su documentación para entender todas las posibilidades que tienes. Puedes utilizar la librería de tu preferencia siempre y cuando cumpla con los requisitos del ejercicio y no utilice JQuery.
-  - En la parte superior de la imágen se debe mostrar el título del producto que está activo en el carrusel junto precio, con cada cambio de slide se debe cambiar estos valores de forma dínamica a los del producto que corresponda.
+  - En la parte superior de la imágen se debe mostrar el título del producto que está activo en el carrusel junto a su precio, con cada cambio de slide se debe cambiar estos valores de forma dínamica a los del producto que corresponda.
 - El bloque de la izquierda:
   - Debe contener la imagen que se agrega a través de las settings del bloque.
   - Debe tener en la parte inferior un título y un mensaje que también se definen a través de las settings del bloque.
