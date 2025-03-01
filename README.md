@@ -6,3 +6,5 @@
 * Tengo dificultades cargando el carrusel del Swiper.
 
 * Se me quedaron algunos comentarios a modo de apuntes en los ficheros.
+
+* La tienda: https://marc-tienda-test.myshopify.com/
