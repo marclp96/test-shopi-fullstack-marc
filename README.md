@@ -189,4 +189,5 @@ En la extension de tu tema deberás cambiar de forma dínamica la imágen destac
 
 - Inicialmente, cuando se muestra el primer producto obtenido vía API, se debe mostrar la imágen definida en las settings del bloque.
 - Cuando se cambia el producto activo en el carrusel, a partir del segundo producto, se debe tomar la segunda imágen del mismo y reemplazar la imágen destacada por la del producto. Con cada cambio de producto se debe cambiar la imágen a la que corresponda.
-- Cuando se vuelva al primer slide se debe de mostrar de nuevo la imágen destacada que se definió en las settings del bloque.
+- Cuando se vuelva al primer slide se debe de mostrar de nuevo la imágen destacada que se definió en las settings del bloque.#   t e s t - s h o p i - f u l l s t a c k - m a r c  
+ 
